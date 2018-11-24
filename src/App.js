@@ -1,26 +1,20 @@
 import React, { Component } from 'react';
+import BookList from './components/bookList/BookList';
 import logo from './logo.svg';
 import './App.css';
+import { Button } from 'semantic-ui-react'
+import { Image as ImageComponent, Item } from 'semantic-ui-react'
+
+const paragraph = <ImageComponent src={require('/Users/itaycohen/Documents/GitHub/the-books-of-medium/src/images/short-paragraph.png')} />
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <BookList/>
       </div>
+
+      
     );
   }
 }

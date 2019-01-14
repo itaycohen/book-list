@@ -22,6 +22,10 @@ class BookItem extends React.Component {
             <Button color='yellow'  >
               <a href={this.props.amazonLink}  target="_blank" rel="noopener noreferrer" >Available on Amazon</a>
             </Button>
+            <Label as='a' image floated='right'>
+              <img src='https://react.semantic-ui.com/images/avatar/small/stevie.jpg' />
+              Index: {this.props.index + 1}
+            </Label>
             <Label as='a' color='blue' image>
               <img src='https://react.semantic-ui.com/images/avatar/small/veronika.jpg' />
               Mentiones: {this.props.numberOfMentions}
@@ -30,6 +34,10 @@ class BookItem extends React.Component {
             <Label as='a' image floated='right'>
               <img src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />
               Claps: {this.props.totalMentionsClaps}
+            </Label>
+            <Label as='a' image floated='right'>
+              <img src='https://react.semantic-ui.com/images/avatar/small/stevie.jpg' />
+              Score: {this.props.score}
             </Label>
           </Item.Extra>
         </Item.Content>

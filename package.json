@@ -2,6 +2,7 @@
   "name": "the-books-of-medium",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://itaycohen.github.io/the-books-of-medium/",
   "dependencies": {
     "@material-ui/core": "^3.5.1",
     "@material-ui/icons": "^3.0.1",
@@ -15,7 +16,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   },
   "eslintConfig": {
     "extends": "react-app"

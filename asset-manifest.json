@@ -1,7 +1,7 @@
 {
   "main.css": "/the-books-of-medium/static/css/main.ac11d4ae.chunk.css",
-  "main.js": "/the-books-of-medium/static/js/main.6d554e8c.chunk.js",
-  "main.js.map": "/the-books-of-medium/static/js/main.6d554e8c.chunk.js.map",
+  "main.js": "/the-books-of-medium/static/js/main.05f0d31a.chunk.js",
+  "main.js.map": "/the-books-of-medium/static/js/main.05f0d31a.chunk.js.map",
   "static/css/1.d1ea9d0d.chunk.css": "/the-books-of-medium/static/css/1.d1ea9d0d.chunk.css",
   "static/js/1.c80dd3ad.chunk.js": "/the-books-of-medium/static/js/1.c80dd3ad.chunk.js",
   "static/js/1.c80dd3ad.chunk.js.map": "/the-books-of-medium/static/js/1.c80dd3ad.chunk.js.map",
@@ -11,6 +11,6 @@
   "static/css/main.ac11d4ae.chunk.css.map": "/the-books-of-medium/static/css/main.ac11d4ae.chunk.css.map",
   "static/css/1.d1ea9d0d.chunk.css.map": "/the-books-of-medium/static/css/1.d1ea9d0d.chunk.css.map",
   "index.html": "/the-books-of-medium/index.html",
-  "precache-manifest.ee375a62660224bf4540daa203adbe94.js": "/the-books-of-medium/precache-manifest.ee375a62660224bf4540daa203adbe94.js",
+  "precache-manifest.1be740e6d0ce8ee10352a5408fc7967e.js": "/the-books-of-medium/precache-manifest.1be740e6d0ce8ee10352a5408fc7967e.js",
   "service-worker.js": "/the-books-of-medium/service-worker.js"
 }

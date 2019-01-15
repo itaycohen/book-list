@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
-    "url": "/the-books-of-medium/static/media/outline-icons.ef60a4f6.woff"
+    "revision": "cd6c777f1945164224dee082abaea03a",
+    "url": "/the-books-of-medium/static/media/outline-icons.cd6c777f.woff2"
   },
   {
-    "revision": "6d554e8c347cc9bbdd7a",
+    "revision": "05f0d31a932161253c44",
     "url": "/the-books-of-medium/static/css/main.ac11d4ae.chunk.css"
   },
   {
@@ -44,47 +44,47 @@ self.__precacheManifest = [
     "url": "/the-books-of-medium/static/media/outline-icons.701ae6ab.eot"
   },
   {
-    "revision": "6d554e8c347cc9bbdd7a",
-    "url": "/the-books-of-medium/static/js/main.6d554e8c.chunk.js"
+    "revision": "05f0d31a932161253c44",
+    "url": "/the-books-of-medium/static/js/main.05f0d31a.chunk.js"
   },
   {
-    "revision": "cd6c777f1945164224dee082abaea03a",
-    "url": "/the-books-of-medium/static/media/outline-icons.cd6c777f.woff2"
-  },
-  {
-    "revision": "82f60bd0b94a1ed68b1e6e309ce2e8c3",
-    "url": "/the-books-of-medium/static/media/outline-icons.82f60bd0.svg"
-  },
-  {
-    "revision": "ad97afd3337e8cda302d10ff5a4026b8",
-    "url": "/the-books-of-medium/static/media/outline-icons.ad97afd3.ttf"
-  },
-  {
-    "revision": "13db00b7a34fee4d819ab7f9838cc428",
-    "url": "/the-books-of-medium/static/media/brand-icons.13db00b7.eot"
-  },
-  {
-    "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
-    "url": "/the-books-of-medium/static/media/brand-icons.c5ebe0b3.ttf"
-  },
-  {
-    "revision": "a046592bac8f2fd96e994733faf3858c",
-    "url": "/the-books-of-medium/static/media/brand-icons.a046592b.woff"
-  },
-  {
-    "revision": "e8c322de9658cbeb8a774b6624167c2c",
-    "url": "/the-books-of-medium/static/media/brand-icons.e8c322de.woff2"
+    "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
+    "url": "/the-books-of-medium/static/media/outline-icons.ef60a4f6.woff"
   },
   {
     "revision": "962a1bf31c081691065fe333d9fa8105",
     "url": "/the-books-of-medium/static/media/icons.962a1bf3.svg"
   },
   {
+    "revision": "ad97afd3337e8cda302d10ff5a4026b8",
+    "url": "/the-books-of-medium/static/media/outline-icons.ad97afd3.ttf"
+  },
+  {
+    "revision": "82f60bd0b94a1ed68b1e6e309ce2e8c3",
+    "url": "/the-books-of-medium/static/media/outline-icons.82f60bd0.svg"
+  },
+  {
+    "revision": "13db00b7a34fee4d819ab7f9838cc428",
+    "url": "/the-books-of-medium/static/media/brand-icons.13db00b7.eot"
+  },
+  {
+    "revision": "e8c322de9658cbeb8a774b6624167c2c",
+    "url": "/the-books-of-medium/static/media/brand-icons.e8c322de.woff2"
+  },
+  {
+    "revision": "a046592bac8f2fd96e994733faf3858c",
+    "url": "/the-books-of-medium/static/media/brand-icons.a046592b.woff"
+  },
+  {
+    "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
+    "url": "/the-books-of-medium/static/media/brand-icons.c5ebe0b3.ttf"
+  },
+  {
     "revision": "c80dd3ade7e22e283326",
     "url": "/the-books-of-medium/static/css/1.d1ea9d0d.chunk.css"
   },
   {
-    "revision": "6031cc80e11c1ac5934ee6f7ceb04124",
+    "revision": "2e25b63da29602c2e6c37fd18f2fbff2",
     "url": "/the-books-of-medium/index.html"
   }
 ];

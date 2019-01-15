@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/the-books-of-medium/precache-manifest.508db36ebad28520759f389db81180e2.js"
+  "/the-books-of-medium/precache-manifest.16692a98975801257546e580e8cd808f.js"
 );
 
 workbox.clientsClaim();

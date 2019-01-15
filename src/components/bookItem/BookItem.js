@@ -1,7 +1,7 @@
 import React from 'react'
-import { Button, Icon, Image, Item, Label } from 'semantic-ui-react'
+import { Button, Item, Label } from 'semantic-ui-react'
 
-const paragraph = <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
+// const paragraph = <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
 
 
 class BookItem extends React.Component {
@@ -23,20 +23,20 @@ class BookItem extends React.Component {
               <a href={this.props.amazonLink}  target="_blank" rel="noopener noreferrer" >Available on Amazon</a>
             </Button>
             <Label as='a' image floated='right'>
-              <img src='https://react.semantic-ui.com/images/avatar/small/stevie.jpg' />
+              <img src='https://react.semantic-ui.com/images/avatar/small/stevie.jpg' alt="amazon"/>
               Index: {this.props.index + 1}
             </Label>
             <Label as='a' color='blue' image>
-              <img src='https://react.semantic-ui.com/images/avatar/small/veronika.jpg' />
-              Mentiones: {this.props.numberOfMentions}
+              <img src='https://react.semantic-ui.com/images/avatar/small/veronika.jpg' alt="mentions"/>
+              Mentions: {this.props.numberOfMentions}
               {/* <Label.Detail>Friend</Label.Detail> */}
            </Label>
             <Label as='a' image floated='right'>
-              <img src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />
+              <img src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' alt="claps"/>
               Claps: {this.props.totalMentionsClaps}
             </Label>
             <Label as='a' image floated='right'>
-              <img src='https://react.semantic-ui.com/images/avatar/small/stevie.jpg' />
+              <img src='https://react.semantic-ui.com/images/avatar/small/stevie.jpg' alt="score"/>
               Score: {this.props.score}
             </Label>
           </Item.Extra>

@@ -2,7 +2,7 @@
   "name": "the-books-of-medium",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://itaycohen.github.io/the-books-of-medium",
+  "homepage": "https://www.thebooksofmedium.com",
   "dependencies": {
     "@material-ui/core": "^3.5.1",
     "@material-ui/icons": "^3.0.1",

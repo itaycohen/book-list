@@ -1,5 +1,5 @@
 import React from 'react'
-import { bookList } from '../../bookList';
+import { bookList } from '../../bookListAllBooks';
 import BookItem from '../bookItem/BookItem';
 import { Item } from 'semantic-ui-react'
 

@@ -1,4 +1,25 @@
 .LinkButtonContent {
     color: black
   }
+
+
+  .itemContainer {
+    /* background: lightgray */
+    background: #ffffffed !important;
+    margin: 2px !important;
+    border-radius: 5px !important;
+    padding-top: 8px !important;
+    padding: 8px !important;
+
+  }
+
+  .imageItem {
+    width: 133px !important;
+  }
   
+
+  .books .ui.divided.items>.item:first-child {
+    padding-top: 8px !important;
+
+
+  }

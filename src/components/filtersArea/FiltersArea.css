@@ -1,0 +1,70 @@
+.filtersAreaContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+    background: #59bdde;
+
+}
+
+
+.stickyFiltersFixed {
+    position: fixed;
+    z-index: 101;
+    
+}
+
+.stickyFiltersFixedDesktop {
+    min-width: 700px !important;
+    top: 58px;
+}
+
+.stickyFiltersFixedMobile {
+    width: 100%;
+    top: 0;
+}
+
+.StickyFiltersNoFixed {
+    border-top-left-radius: 16px !important;
+    border-top-right-radius: 16px !important;
+
+    
+
+}
+
+
+.stickyFiltersWarpper {
+    background-color: #121c25;
+  }
+
+
+
+  .stickyFiltersFixedMobile .ui.selection.dropdown {
+    min-width: 120px;
+    width: 120px;
+    min-height: 26px;
+    height: 26px;
+    line-height: 7px;
+  }
+
+  .stickyFiltersFixedMobile .ui.dropdown .menu>.item {
+    font-size: 12px;
+
+  }
+
+  .stickyFiltersFixedMobile .ui.search {
+    font-size: 12px;
+  }
+
+
+
+
+  .stickyFiltersFixedMobile  .ui.selection.dropdown>.delete.icon,
+   .stickyFiltersFixedMobile  .ui.selection.dropdown>.dropdown.icon,
+    .stickyFiltersFixedMobile  .ui.selection.dropdown>.search.icon {
+        line-height: 7px;
+    }
+
+
+
+

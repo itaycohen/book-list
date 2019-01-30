@@ -10,9 +10,9 @@ class BookItem extends React.Component {
   render() {
     return (
 
-      <Item>
+      <Item className="itemContainer">
         <Item.Image src={this.props.bookCoverImg} as='a'
-          href={this.props.amazonLink}  target="_blank" />
+          href={this.props.amazonLink}  target="_blank" className="imageItem"/>
 
         <Item.Content>
           <Item.Header as='a'>{this.props.bookName}</Item.Header>

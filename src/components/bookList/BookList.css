@@ -19,10 +19,17 @@
 
 
   .bookListContainer {
+      
       background: #59bdde;
       padding: 5px;
   }
 
+
+  .bookListWrapper .ui.text.container {
+    min-width: 765px !important;
+    max-width: 765px !important;
+
+  }
 
   /* .filtersAreaContainer {
       display: flex;

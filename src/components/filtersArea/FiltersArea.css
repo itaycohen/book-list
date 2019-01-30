@@ -1,7 +1,7 @@
 .filtersAreaContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: baseline;
     background: #59bdde;
 
@@ -14,19 +14,26 @@
     
 }
 
-.stickyFiltersFixedDesktop {
-    min-width: 700px !important;
+.stickyFiltersDesktop {
+    min-width: 765px !important;
+    max-width: 765px !important;
+
     top: 58px;
 }
 
-.stickyFiltersFixedMobile {
+.stickyFiltersMobile {
     width: 100%;
     top: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 12px;
+    padding-left: 12px;
 }
 
 .StickyFiltersNoFixed {
     border-top-left-radius: 16px !important;
     border-top-right-radius: 16px !important;
+    
 
     
 
@@ -39,7 +46,7 @@
 
 
 
-  .stickyFiltersFixedMobile .ui.selection.dropdown {
+  .stickyFiltersMobile .ui.selection.dropdown {
     min-width: 120px;
     width: 120px;
     min-height: 26px;
@@ -47,23 +54,36 @@
     line-height: 7px;
   }
 
-  .stickyFiltersFixedMobile .ui.dropdown .menu>.item {
+  .stickyFiltersMobile .ui.dropdown .menu>.item,
+  .stickyFiltersMobile .ui.search  {
     font-size: 12px;
 
   }
 
-  .stickyFiltersFixedMobile .ui.search {
-    font-size: 12px;
-  }
 
 
-
-
-  .stickyFiltersFixedMobile  .ui.selection.dropdown>.delete.icon,
-   .stickyFiltersFixedMobile  .ui.selection.dropdown>.dropdown.icon,
-    .stickyFiltersFixedMobile  .ui.selection.dropdown>.search.icon {
+  .stickyFiltersMobile  .ui.selection.dropdown>.delete.icon,
+   .stickyFiltersMobile  .ui.selection.dropdown>.dropdown.icon,
+    .stickyFiltersMobile  .ui.selection.dropdown>.search.icon {
         line-height: 7px;
     }
+
+
+
+    .stickyFiltersDesktop .ui.header {
+        margin-top: 16px;
+    }
+
+
+.goToTopButton {
+    position: absolute;
+    right: 0;
+    margin-top: 3px !important;
+}
+
+.goToTopButtonHidden {
+    display: none !important;
+}
 
 
 

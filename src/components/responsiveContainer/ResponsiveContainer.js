@@ -45,6 +45,7 @@ const HomepageHeading = ({ mobile }) => (
           fontSize: mobile ? '0.9em' : '1em',
           fontWeight: 'normal',
           marginTop: mobile ? '0.5em' : '1em',
+          marginBottom: mobile ? '0.5em' : '1em',
         }}
       />
       {/* <Button primary size='huge'>

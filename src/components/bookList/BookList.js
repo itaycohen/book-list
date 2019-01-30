@@ -90,7 +90,7 @@ class BookList extends React.Component {
 
 
         return (
-            <div>
+            <div className="bookListWrapper">
 
                 <Visibility
                     once={false}

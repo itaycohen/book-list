@@ -56,8 +56,8 @@ class DesktopFiltersArea extends Component {
         return (
             <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
 
-                <Container text textAlign='center'>
-                    <div className={"filtersAreaContainer " + "stickyFiltersFixedDesktop " + (fixed ? "stickyFiltersFixed" : "StickyFiltersNoFixed")}>
+                <Container text textAlign='center' >
+                    <div className={"filtersAreaContainer " + "stickyFiltersDesktop " + (fixed ? "stickyFiltersFixed" : "StickyFiltersNoFixed")}>
                         <Header as='h4' className="filterItem">
                             <Icon name='filter' />
                             <Header.Content>
@@ -103,32 +103,17 @@ class MobileFiltersArea extends Component {
 
                 <Sticky context={contextRef}>
 
-
-                    <div className={"filtersAreaContainer " + "stickyFiltersFixedMobile " + (fixed ? "stickyFiltersFixed" : "")}>
-                        {/* <Header as='h6' > */}
+                    <div className={"filtersAreaContainer " + "stickyFiltersMobile " + (fixed ? "stickyFiltersFixed" : "")}>
                         <div>
-                        <Icon name='filter'  />
-                            {/* <Header.Content> */}
+                            <Icon name='filter' />
                             <Dropdown placeholder='All Categories' search defaultValue='All' selection options={categories} />
-                            {/* </Header.Content> */}
-                            {/* </Header> */}
                         </div>
                         <div>
-
-
-
-                        {/* <Header as='h6' > */}
-                        <Icon name='sort amount down'  />
-                        {/* <Header.Content> */}
-                        {/* <Dropdown placeholder='Rank' defaultValue='Rank' selection options={sorters} /> */}
-                        <Dropdown placeholder='Rank' search defaultValue='Rank' selection options={sorters} />
-                        {/* </Header.Content> */}
-                        {/* </Header> */}
+                            <Icon name='sort amount down' />
+                            <Dropdown placeholder='Rank' search defaultValue='Rank' selection options={sorters} />
                         </div>
-                        
-                        {/* <Header as='h6' > */}
-                        <Icon name='sort amount down' />
-                        {/* </Header> */}
+
+                        <Icon name='long arrow alternate up' size='large'  className={"goToTopButton " + (fixed ? "" : "goToTopButtonHidden")} />
                     </div>
                     {/* </Container> */}
 

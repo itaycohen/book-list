@@ -14,9 +14,9 @@ class BookItem extends React.Component {
           href={this.props.amazonLink} target="_blank" className="imageItem" style={{ width: '50px !important' }} />
 
         <Item.Content>
-          <Item.Header as='a'>{this.props.bookName}</Item.Header>
+          <Item.Header as='a' href={this.props.amazonLink} target="_blank" >{this.props.bookName}</Item.Header>
           <Item.Meta>
-            <span className='cinema'>{this.props.bookAuthor}</span>
+            <span className='cinema' href={this.props.amazonLink} target="_blank" >{this.props.bookAuthor}</span>
           </Item.Meta>
           <Item.Extra>
             <Label as='a' color='grey' image floated='right'>

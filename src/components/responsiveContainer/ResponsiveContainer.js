@@ -43,7 +43,7 @@ const HomepageHeading = ({ mobile }) => (
     />
     <Header
       as='h3'
-      content='I analyzed every book ever mentioned on Medium. Here are the most popular ones.'
+      content='I have analyzed every book ever mentioned on Medium. Here are the most popular ones.'
       inverted
       style={{
         fontSize: mobile ? '0.9em' : '1em',

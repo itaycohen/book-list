@@ -8,7 +8,15 @@ import {
     Item,
     Container,
     Visibility,
+    Responsive
 } from 'semantic-ui-react'
+
+
+const getWidth = () => {
+    const isSSR = typeof window === 'undefined'
+
+    return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
+}
 
 
 
@@ -58,15 +66,7 @@ class BookList extends React.Component {
     render() {
         const loader = <div className="loader">Loading ...</div>;
 
-
-
         const { fixed } = this.state
-
-        const categoriesOptions = [{ key: 'AL', value: 'All', text: 'All Categories' }, { key: 'W', value: 'W', text: 'Web' }, { key: 'D', value: 'Design', text: 'Design' }]
-
-        const sortOptions = [{ key: 'R', value: 'Rank', text: 'Rank' }, { key: 'MN', value: 'MN', text: 'Mentions' }, { key: 'CL', value: 'CL', text: 'Claps' }]
-
-
 
 
         var items = [];
@@ -90,43 +90,109 @@ class BookList extends React.Component {
 
 
         return (
-            <div className="bookListWrapper">
 
-                <Visibility
-                    once={false}
-                    onTopPassed={this.showFixedMenu}
-                    onTopPassedReverse={this.hideFixedMenu}
-                    className="stickyFiltersWarpper">
-
-                    <FiltersArea fixed={fixed} />
-
-                </Visibility>
-
-                <Container text textAlign='center' className="bookListContainer">
+            <div>
 
 
-                    <InfiniteScroll
-                        pageStart={0}
-                        loadMore={this.loadItems.bind(this)}
-                        hasMore={this.state.hasMoreItems}
-                        loader={loader}>
 
-                        <div className="books">
-                            <Item.Group divided>
-                                {items}
-                            </Item.Group>
-                        </div>
-                    </InfiniteScroll>
+            {/* // Desktop layout */}
 
-                </Container>
+            <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
+
+                <div className="bookListWrapperDesktop">
+
+                    <Visibility
+                        once={false}
+                        onTopPassed={this.showFixedMenu}
+                        onTopPassedReverse={this.hideFixedMenu}
+                        className="stickyFiltersWarpper">
+
+                        <FiltersArea fixed={fixed} />
+
+                    </Visibility>
+
+                    <Container text className="bookListContainer">
+
+
+                        <InfiniteScroll
+                            pageStart={0}
+                            loadMore={this.loadItems.bind(this)}
+                            hasMore={this.state.hasMoreItems}
+                            loader={loader}>
+
+                            <div className="books">
+                                <Item.Group divided>
+                                    {items}
+                                </Item.Group>
+                            </div>
+                        </InfiniteScroll>
+
+                    </Container>
+
+
+                </div>
+
+            </Responsive>
+
+
+            {/* // Mobile layout */}
+
+
+            <Responsive getWidth={getWidth} maxWidth={Responsive.onlyMobile.maxWidth} >
+
+                <div className="bookListWrapperMobile">
+
+                    <Visibility
+                        once={false}
+                        onTopPassed={this.showFixedMenu}
+                        onTopPassedReverse={this.hideFixedMenu}
+                        className="stickyFiltersWarpper">
+
+                        <FiltersArea fixed={fixed} />
+
+                    </Visibility>
+
+                    <Container className="bookListContainerMobile">
+
+
+                        <InfiniteScroll
+                            pageStart={0}
+                            loadMore={this.loadItems.bind(this)}
+                            hasMore={this.state.hasMoreItems}
+                            loader={loader}>
+
+                            <div className="books">
+                                <Item.Group divided>
+                                    {items}
+                                </Item.Group>
+                            </div>
+                        </InfiniteScroll>
+
+                    </Container>
+
+
+                </div>
+
+
+            </Responsive>
 
 
             </div>
 
 
+
+
+
+
+
+
+
+
         );
     }
 }
+
+
 
 export default BookList;
 

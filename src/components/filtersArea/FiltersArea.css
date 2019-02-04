@@ -47,8 +47,8 @@
 
 
   .stickyFiltersMobile .ui.selection.dropdown {
-    min-width: 120px;
-    width: 120px;
+    min-width: 110px;
+    width: 110px;
     min-height: 26px;
     height: 26px;
     line-height: 7px;
@@ -79,6 +79,8 @@
     position: absolute;
     right: 0;
     margin-top: 3px !important;
+    margin-right: 2px !important;
+
 }
 
 .goToTopButtonHidden {

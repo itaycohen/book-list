@@ -1,0 +1,19 @@
+.mobileResponsiveContainer .ui.menu {
+    margin-bottom: 0px !important;
+    border-radius: 0px !important;
+    border: none !important;
+}
+
+
+.mobileSegment {
+    margin: 0px !important; 
+    border-radius: 0px !important;
+
+}
+
+
+.mobileSegment .ui.container{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+
+}

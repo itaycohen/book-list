@@ -4,22 +4,95 @@
 
 
   .itemContainer {
-    /* background: lightgray */
     background: #ffffffed !important;
-    margin: 2px !important;
     border-radius: 5px !important;
     padding-top: 8px !important;
     padding: 8px !important;
+    margin-bottom: 4px !important;
 
   }
 
-  .imageItem {
-    width: 133px !important;
-  }
+
+
+
+  /* .itemContainer .imageItem img {
+
+    width: 50px !important;
+
+
+  } */
   
 
   .books .ui.divided.items>.item:first-child {
     padding-top: 8px !important;
+  }
 
 
+  
+
+  .bookListWrapperMobile .itemContainer {
+    flex-direction: row !important;
+    /* align-items: center !important; */
+  }
+
+
+  .bookListWrapperMobile .imageItem {
+    margin-right: 16px !important;
+    margin-top: 20px !important;
+
+  }
+
+  .bookListWrapperMobile .ui.items>.item>.content>.header:not(.ui) {
+    font-size: 15px !important;
+  }
+
+  .bookListWrapperMobile .ui.items>.item .meta :last-child {
+    font-size: 13px !important;
+  }
+
+  .bookListWrapperMobile .ui.label {
+    font-size: 11px !important;
+
+  }
+
+
+  .bookListWrapperMobile .ui.label>.icon {
+    margin-right: 3px !important;
+
+  }
+
+
+
+
+
+  
+
+
+  .bookListWrapperDesktop .itemContainer .imageItem .ui.items:not(.unstackable)>.item>.image,
+  .bookListWrapperDesktop .itemContainer .imageItem .ui.items:not(.unstackable)>.item>.image>img {
+    width: 95px !important;
+  }
+
+  .bookListWrapperDesktop .ui.items:not(.unstackable)>.item>.image,
+  .bookListWrapperDesktop .ui.items:not(.unstackable)>.item>.image>img {
+    width: 95px !important;
+  }
+
+  .bookListWrapperDesktop .itemContainer .imageItem img {
+    width: 95px !important;
+  }
+
+
+  .bookListWrapperMobile .itemContainer .imageItem .ui.items:not(.unstackable)>.item>.image,
+  .bookListWrapperMobile .itemContainer .imageItem .ui.items:not(.unstackable)>.item>.image>img {
+    width: 70px !important;
+  }
+
+  .bookListWrapperMobile .ui.items:not(.unstackable)>.item>.image,
+  .bookListWrapperMobile .ui.items:not(.unstackable)>.item>.image>img {
+    width: 70px !important;
+  }
+
+  .bookListWrapperMobile .itemContainer .imageItem img {
+    width: 70px !important;
   }

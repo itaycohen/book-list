@@ -35,11 +35,11 @@ class BookItem extends React.Component {
               <Icon name='heart' /> 
               Claps: {this.props.totalMentionsClaps}
             </Label>
-            <Label as='a' color='orange' image floated='right'> 
-              {/* <img src='https://react.semantic-ui.com/images/avatar/small/stevie.jpg' alt="score" /> */}
+            {/* <Label as='a' color='orange' image floated='right'> 
+              <img src='https://react.semantic-ui.com/images/avatar/small/stevie.jpg' alt="score" />
               <Icon name='trophy' /> 
               Score: {this.props.score}
-            </Label>
+            </Label> */}
           </Item.Extra>
 
           <Item.Extra>

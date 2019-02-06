@@ -36,7 +36,7 @@ class BookList extends React.Component {
 
     loadItems(page) {
         var self = this;
-        var url = "https://thebooksofmedium-api.herokuapp.com/books/sub-page?limit=50&&page=" + page;
+        var url = "https://thebooksofmedium-api.herokuapp.com/books/score/sub-page?limit=50&&page=" + page;
 
         qwest.get(url, {
             cache: true

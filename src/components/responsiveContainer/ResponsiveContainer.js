@@ -98,7 +98,6 @@ class DesktopContainer extends Component {
     const { children } = this.props
     const { fixed } = this.state
 
-    const { contextRef } = this.state
 
     return (
       <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
@@ -108,7 +107,6 @@ class DesktopContainer extends Component {
           onBottomPassedReverse={this.hideFixedMenu}
         >
           <Segment
-            claasName="segment"
             // inverted
             textAlign='center'
             style={{ minHeight: 100, padding: '0.5em 0em' }}
@@ -173,7 +171,6 @@ class MobileContainer extends Component {
 
   render() {
     const { children } = this.props
-    const { sidebarOpened } = this.state
 
     return (
       <Responsive

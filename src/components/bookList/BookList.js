@@ -28,18 +28,40 @@ class BookList extends React.Component {
         this.state = {
             books: [],
             hasMoreItems: true,
+            sorter: "score"
         };
+
     }
+
+    // componentDidMount() {
+    //     this.loadItems(0);
+    //   }
+
 
     hideFixedMenu = () => this.setState({ fixed: false })
     showFixedMenu = () => this.setState({ fixed: true })
 
+
+
+    onSorterChange = (event, data) => {
+        this.setState({ sorter: data.value })
+        // this.setState({ books: []})
+
+
+        // this.forceUpdate()
+        console.log("dataaaaaa", data.value)
+    }
+
     loadItems(page) {
+        console.log("page", page)
         var self = this;
-        var url = "https://thebooksofmedium-api.herokuapp.com/books/score/sub-page?limit=50&&page=" + page;
+        var url = "https://thebooksofmedium-api.herokuapp.com/books/" + this.state.sorter + "/sub-page?limit=50&&page=" + page;
+
+
+        
 
         qwest.get(url, {
-            cache: true
+            cache: false
         })
             .then(function (xhr, resp) {
                 if (resp) {
@@ -66,7 +88,7 @@ class BookList extends React.Component {
     render() {
         const loader = <div className="loader">Loading ...</div>;
 
-        const { fixed } = this.state
+        const { hasMoreItems, fixed, sorter, pageStart } = this.state
 
 
         var items = [];
@@ -111,7 +133,7 @@ class BookList extends React.Component {
                         onTopPassedReverse={this.hideFixedMenu}
                         className="stickyFiltersWarpper">
 
-                        <FiltersArea fixed={fixed} />
+                        <FiltersArea fixed={fixed} sorter={sorter} onSorterChange={this.onSorterChange}/>
 
                     </Visibility>
 
@@ -121,7 +143,7 @@ class BookList extends React.Component {
                         <InfiniteScroll
                             pageStart={0}
                             loadMore={this.loadItems.bind(this)}
-                            hasMore={this.state.hasMoreItems}
+                            hasMore={hasMoreItems}
                             loader={loader}>
 
                             <div className="books">
@@ -152,7 +174,7 @@ class BookList extends React.Component {
                         onTopPassedReverse={this.hideFixedMenu}
                         className="stickyFiltersWarpper">
 
-                        <FiltersArea fixed={fixed} />
+                        <FiltersArea fixed={fixed} sorter={this.state.sorter}/>
 
                     </Visibility>
 

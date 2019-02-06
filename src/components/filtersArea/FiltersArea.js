@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './FiltersArea.css';
 
 import * as Scroll from 'react-scroll';
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
- 
+import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
 
 import {
     Dropdown,
@@ -28,6 +28,7 @@ const getWidth = () => {
 
 class FiltersArea extends React.Component {
 
+
     state = { modalOpen: false }
 
     handleOpen = () => this.setState({ modalOpen: true })
@@ -38,18 +39,34 @@ class FiltersArea extends React.Component {
 
 
     render() {
-        let fixed = this.props.fixed;
+
+        const { sorter, fixed, onSorterChange } = this.props;
+
         const categoriesOptions = [{ key: 'AL', value: 'All', text: 'All Tags' }, { key: 'W', value: 'W', text: 'Web' }, { key: 'D', value: 'Design', text: 'Design' }]
-        const sortOptions = [{ key: 'R', value: 'Rank', text: 'Rank' }, { key: 'MN', value: 'MN', text: 'Mentions' }, { key: 'CL', value: 'CL', text: 'Claps' }]
+        const sortOptions = [{ key: 'R', value: 'score', text: 'Rank' }, { key: 'MN', value: 'mentions', text: 'Mentions' }, { key: 'CL', value: 'claps', text: 'Claps' }]
 
 
         return (
 
             <div>
 
-                <DesktopFiltersArea fixed={fixed} categories={categoriesOptions} sorters={sortOptions} handleOpen={this.handleOpen} handleClose={this.handleClose} />
-                <MobileFiltersArea fixed={fixed} categories={categoriesOptions} sorters={sortOptions} handleOpen={this.handleOpen} handleClose={this.handleClose}/>
-                <DropdownModal handleClose={this.handleClose} modalState={this.state.modalOpen}/>
+                <DesktopFiltersArea
+                    fixed={fixed}
+                    categories={categoriesOptions}
+                    sortersOptions={sortOptions}
+                    handleOpen={this.handleOpen}
+                    handleClose={this.handleClose}
+                    onSorterChange={onSorterChange}
+                    sorter={sorter} />
+                <MobileFiltersArea
+                    fixed={fixed}
+                    categories={categoriesOptions}
+                    sortersOptions={sortOptions}
+                    handleOpen={this.handleOpen}
+                    handleClose={this.handleClose} />
+                <DropdownModal
+                    handleClose={this.handleClose}
+                    modalState={this.state.modalOpen} />
             </div>
 
         )
@@ -64,8 +81,7 @@ class DesktopFiltersArea extends Component {
     render() {
 
 
-        const {fixed, categories, sorters, handleOpen } = this.props;
-
+        const { fixed, categories, sortersOptions, handleOpen, onSorterChange, sorter } = this.props;
 
         return (
 
@@ -84,7 +100,7 @@ class DesktopFiltersArea extends Component {
                         <Header as='h4' className="filterItem">
                             <Icon name='sort amount down' />
                             <Header.Content>
-                                <Dropdown placeholder='Rank' defaultValue='Rank' selection options={sorters} onClick={handleOpen} />
+                                <Dropdown placeholder={sorter} defaultValue={sorter} selection options={sortersOptions} closeOnChange onChange={onSorterChange} />
                             </Header.Content>
                         </Header>
                     </div>
@@ -112,7 +128,7 @@ class MobileFiltersArea extends Component {
         const { contextRef } = this.state
 
 
-        const {fixed, categories, sorters, handleOpen } = this.props;
+        const { fixed, categories, sortersOptions, handleOpen } = this.props;
 
 
         return (
@@ -124,14 +140,14 @@ class MobileFiltersArea extends Component {
                     <div className={"filtersAreaContainer " + "stickyFiltersMobile " + (fixed ? "stickyFiltersFixed" : "")}>
                         <div>
                             <Icon name='filter' />
-                            <Dropdown placeholder='All Tags' search defaultValue='All' selection options={categories} onClick={handleOpen}  />
+                            <Dropdown placeholder='All Tags' search defaultValue='All' selection options={categories} onClick={handleOpen} />
                         </div>
                         <div>
                             <Icon name='sort amount down' />
-                            <Dropdown placeholder='Rank' search defaultValue='Rank' selection options={sorters} onClick={handleOpen} />
+                            <Dropdown placeholder='Rank' search defaultValue='Rank' selection options={sortersOptions} onClick={handleOpen} />
                         </div>
 
-                        <Icon name='long arrow alternate up' size='large' className={"goToTopButton " + (fixed ? "" : "goToTopButtonHidden")}  onClick={this.goToTop}/>
+                        <Icon name='long arrow alternate up' size='large' className={"goToTopButton " + (fixed ? "" : "goToTopButtonHidden")} onClick={this.goToTop} />
                     </div>
                     {/* </Container> */}
 
@@ -156,23 +172,23 @@ class DropdownModal extends Component {
     render() {
 
 
-        const {modalState, handleClose} = this.props;
+        const { modalState, handleClose } = this.props;
 
         return (
 
-                <Modal
-                    open={modalState}
-                    onClose={() => handleClose() }
-                    size='mini'
-                    closeIcon
-                >
+            <Modal
+                open={modalState}
+                onClose={() => handleClose()}
+                size='mini'
+                closeIcon
+            >
                 <Modal.Header>Coming Soon!</Modal.Header>
                 <Modal.Content >
-                  <Modal.Description>
-                    <Header>I'm working on it right now :-)</Header>
-                  </Modal.Description>
+                    <Modal.Description>
+                        <Header>I'm working on it right now :-)</Header>
+                    </Modal.Description>
                 </Modal.Content>
-                </Modal>
+            </Modal>
 
 
         )

@@ -11,11 +11,8 @@ import {
     Icon,
     Container,
     Responsive,
-    Sidebar,
     Sticky,
-    Segment,
     Modal,
-    Button
 } from 'semantic-ui-react'
 
 
@@ -63,7 +60,9 @@ class FiltersArea extends React.Component {
                     categories={categoriesOptions}
                     sortersOptions={sortOptions}
                     handleOpen={this.handleOpen}
-                    handleClose={this.handleClose} />
+                    handleClose={this.handleClose}
+                    onSorterChange={onSorterChange}
+                    sorter={sorter} />
                 <DropdownModal
                     handleClose={this.handleClose}
                     modalState={this.state.modalOpen} />
@@ -80,11 +79,9 @@ class DesktopFiltersArea extends Component {
 
     render() {
 
-
         const { fixed, categories, sortersOptions, handleOpen, onSorterChange, sorter } = this.props;
 
         return (
-
             <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
 
                 <Container text textAlign='center' >
@@ -128,7 +125,7 @@ class MobileFiltersArea extends Component {
         const { contextRef } = this.state
 
 
-        const { fixed, categories, sortersOptions, handleOpen } = this.props;
+        const { fixed, categories, sortersOptions, handleOpen , onSorterChange, sorter} = this.props;
 
 
         return (
@@ -144,7 +141,7 @@ class MobileFiltersArea extends Component {
                         </div>
                         <div>
                             <Icon name='sort amount down' />
-                            <Dropdown placeholder='Rank' search defaultValue='Rank' selection options={sortersOptions} onClick={handleOpen} />
+                            <Dropdown placeholder='Rank' placeholder={sorter} defaultValue={sorter} selection options={sortersOptions} closeOnChange onChange={onSorterChange}/>
                         </div>
 
                         <Icon name='long arrow alternate up' size='large' className={"goToTopButton " + (fixed ? "" : "goToTopButtonHidden")} onClick={this.goToTop} />

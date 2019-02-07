@@ -19,6 +19,7 @@ const getWidth = () => {
 }
 
 
+const initialPage = 1;
 
 class BookList extends React.Component {
 
@@ -28,49 +29,42 @@ class BookList extends React.Component {
         this.state = {
             books: [],
             hasMoreItems: true,
-            sorter: "score"
+            sorter: "score",
+            page: initialPage
         };
-
     }
-
-    // componentDidMount() {
-    //     this.loadItems(0);
-    //   }
 
 
     hideFixedMenu = () => this.setState({ fixed: false })
     showFixedMenu = () => this.setState({ fixed: true })
 
-
-
     onSorterChange = (event, data) => {
-        this.setState({ sorter: data.value })
-        // this.setState({ books: []})
-
-
-        // this.forceUpdate()
-        console.log("dataaaaaa", data.value)
+        this.setState({
+            sorter: data.value,
+            books: [],
+            page: initialPage
+        })
     }
 
+
     loadItems(page) {
-        console.log("page", page)
-        var self = this;
-        var url = "https://thebooksofmedium-api.herokuapp.com/books/" + this.state.sorter + "/sub-page?limit=50&&page=" + page;
 
-
-        
+        const self = this;
+        const url = "https://thebooksofmedium-api.herokuapp.com/books/" + this.state.sorter + "/sub-page?limit=50&&page=" + self.state.page;
 
         qwest.get(url, {
             cache: false
         })
             .then(function (xhr, resp) {
                 if (resp) {
-                    var books = self.state.books;
+                    const books = self.state.books;
+                    const newPage = self.state.page + 1;
                     resp.docs.map((book) => {
                         books.push(book);
                     });
                     self.setState({
                         books: books,
+                        page: newPage
                     });
                 }
             })
@@ -88,10 +82,10 @@ class BookList extends React.Component {
     render() {
         const loader = <div className="loader">Loading ...</div>;
 
-        const { hasMoreItems, fixed, sorter, pageStart } = this.state
+        const { hasMoreItems, fixed, sorter } = this.state
 
 
-        var items = [];
+        let items = [];
         this.state.books.map((bookObject, i) => {
 
             let totalMentionsClaps = nFormatter(bookObject.totalMentionsClaps, 1);
@@ -105,8 +99,6 @@ class BookList extends React.Component {
                     amazonLink={bookObject.amazonLink}
                     bookCoverImg={bookObject.bookCoverImg}
                     totalMentionsClaps={totalMentionsClaps}
-                    // totalMentionsClaps={bookObject.totalMentionsClaps}
-
                     numberOfMentions={bookObject.numberOfMentions}
                     score={bookObject.score}
                     index={i}
@@ -119,88 +111,76 @@ class BookList extends React.Component {
 
             <div>
 
+                {/* // Desktop layout */}
+
+                <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
+
+                    <div className="bookListWrapperDesktop">
+
+                        <Visibility
+                            once={false}
+                            onTopPassed={this.showFixedMenu}
+                            onTopPassedReverse={this.hideFixedMenu}
+                            className="stickyFiltersWarpper">
+
+                            <FiltersArea fixed={fixed} sorter={sorter} onSorterChange={this.onSorterChange} />
+
+                        </Visibility>
+
+                        <Container text className="bookListContainer">
 
 
-            {/* // Desktop layout */}
+                            <InfiniteScroll
+                                pageStart={0}
+                                loadMore={this.loadItems.bind(this)}
+                                hasMore={hasMoreItems}
+                                loader={loader}>
 
-            <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
+                                <div className="books">
+                                    <Item.Group divided>
+                                        {items}
+                                    </Item.Group>
+                                </div>
+                            </InfiniteScroll>
 
-                <div className="bookListWrapperDesktop">
-
-                    <Visibility
-                        once={false}
-                        onTopPassed={this.showFixedMenu}
-                        onTopPassedReverse={this.hideFixedMenu}
-                        className="stickyFiltersWarpper">
-
-                        <FiltersArea fixed={fixed} sorter={sorter} onSorterChange={this.onSorterChange}/>
-
-                    </Visibility>
-
-                    <Container text className="bookListContainer">
+                        </Container>
 
 
-                        <InfiniteScroll
-                            pageStart={0}
-                            loadMore={this.loadItems.bind(this)}
-                            hasMore={hasMoreItems}
-                            loader={loader}>
+                    </div>
 
-                            <div className="books">
-                                <Item.Group divided>
-                                    {items}
-                                </Item.Group>
-                            </div>
-                        </InfiniteScroll>
-
-                    </Container>
+                </Responsive>
 
 
-                </div>
+                {/* // Mobile layout */}
+                <Responsive getWidth={getWidth} maxWidth={Responsive.onlyMobile.maxWidth} >
 
-            </Responsive>
+                    <div className="bookListWrapperMobile">
 
+                        <Visibility
+                            once={false}
+                            onTopPassed={this.showFixedMenu}
+                            onTopPassedReverse={this.hideFixedMenu}
+                            className="stickyFiltersWarpper">
+                            <FiltersArea fixed={fixed} sorter={sorter} onSorterChange={this.onSorterChange} />
+                        </Visibility>
 
-            {/* // Mobile layout */}
+                        <Container className="bookListContainerMobile">
 
+                            <InfiniteScroll
+                                pageStart={0}
+                                loadMore={this.loadItems.bind(this)}
+                                hasMore={this.state.hasMoreItems}
+                                loader={loader}>
 
-            <Responsive getWidth={getWidth} maxWidth={Responsive.onlyMobile.maxWidth} >
-
-                <div className="bookListWrapperMobile">
-
-                    <Visibility
-                        once={false}
-                        onTopPassed={this.showFixedMenu}
-                        onTopPassedReverse={this.hideFixedMenu}
-                        className="stickyFiltersWarpper">
-
-                        <FiltersArea fixed={fixed} sorter={this.state.sorter}/>
-
-                    </Visibility>
-
-                    <Container className="bookListContainerMobile">
-
-
-                        <InfiniteScroll
-                            pageStart={0}
-                            loadMore={this.loadItems.bind(this)}
-                            hasMore={this.state.hasMoreItems}
-                            loader={loader}>
-
-                            <div className="books">
-                                <Item.Group divided>
-                                    {items}
-                                </Item.Group>
-                            </div>
-                        </InfiniteScroll>
-
-                    </Container>
-
-
-                </div>
-
-
-            </Responsive>
+                                <div className="books">
+                                    <Item.Group divided>
+                                        {items}
+                                    </Item.Group>
+                                </div>
+                            </InfiniteScroll>
+                        </Container>
+                    </div>
+                </Responsive>
 
 
             </div>
@@ -221,24 +201,24 @@ class BookList extends React.Component {
 
 
 const nFormatter = (num, digits) => {
-    var si = [
-      { value: 1, symbol: "" },
-      { value: 1E3, symbol: "k" },
-      { value: 1E6, symbol: "M" },
-      { value: 1E9, symbol: "G" },
-      { value: 1E12, symbol: "T" },
-      { value: 1E15, symbol: "P" },
-      { value: 1E18, symbol: "E" }
+    const si = [
+        { value: 1, symbol: "" },
+        { value: 1E3, symbol: "k" },
+        { value: 1E6, symbol: "M" },
+        { value: 1E9, symbol: "G" },
+        { value: 1E12, symbol: "T" },
+        { value: 1E15, symbol: "P" },
+        { value: 1E18, symbol: "E" }
     ];
-    var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
-    var i;
+    const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+    let i;
     for (i = si.length - 1; i > 0; i--) {
-      if (num >= si[i].value) {
-        break;
-      }
+        if (num >= si[i].value) {
+            break;
+        }
     }
     return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
-  }
+}
 
 
 export default BookList;

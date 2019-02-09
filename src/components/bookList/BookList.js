@@ -30,7 +30,8 @@ class BookList extends React.Component {
             books: [],
             hasMoreItems: true,
             sorter: "score",
-            page: initialPage
+            page: initialPage,
+            tag: "All Tags"
         };
     }
 
@@ -39,18 +40,37 @@ class BookList extends React.Component {
     showFixedMenu = () => this.setState({ fixed: true })
 
     onSorterChange = (event, data) => {
-        this.setState({
-            sorter: data.value,
-            books: [],
-            page: initialPage
-        })
+        const newSorter = data.value;
+        if (this.state.sorter !== newSorter) {
+            this.setState({
+                sorter: data.value,
+                books: [],
+                page: initialPage,
+            })
+        }
+    }
+
+
+    onTagChange = (event, data) => {
+        const newTag = data.value;
+        if (this.state.tag !== newTag) {
+            this.setState({
+                books: [],
+                page: initialPage,
+                tag: data.value
+            })
+        }
     }
 
 
     loadItems(page) {
 
         const self = this;
-        const url = "https://thebooksofmedium-api.herokuapp.com/books/" + this.state.sorter + "/sub-page?limit=50&&page=" + self.state.page;
+        const url = "https://thebooksofmedium-api.herokuapp.com/books/" + this.state.tag + "/" + this.state.sorter + "/sub-page?limit=50&&page=" + self.state.page;
+        // const url = "localhost:3001/books/" + this.state.tag + "/" + this.state.sorter + "/sub-page?limit=50&&page=" + self.state.page;
+        // const url = "books/" + this.state.tag + "/" + this.state.sorter + "/sub-page?limit=50&&page=" + self.state.page;
+
+
 
         qwest.get(url, {
             cache: false
@@ -123,7 +143,7 @@ class BookList extends React.Component {
                             onTopPassedReverse={this.hideFixedMenu}
                             className="stickyFiltersWarpper">
 
-                            <FiltersArea fixed={fixed} sorter={sorter} onSorterChange={this.onSorterChange} />
+                            <FiltersArea fixed={fixed} sorter={sorter} onSorterChange={this.onSorterChange} onTagChange={this.onTagChange} />
 
                         </Visibility>
 
@@ -161,7 +181,7 @@ class BookList extends React.Component {
                             onTopPassed={this.showFixedMenu}
                             onTopPassedReverse={this.hideFixedMenu}
                             className="stickyFiltersWarpper">
-                            <FiltersArea fixed={fixed} sorter={sorter} onSorterChange={this.onSorterChange} />
+                            <FiltersArea fixed={fixed} sorter={sorter} onSorterChange={this.onSorterChange} onTagChange={this.onTagChange} />
                         </Visibility>
 
                         <Container className="bookListContainerMobile">

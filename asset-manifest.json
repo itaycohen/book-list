@@ -8,9 +8,9 @@
   "runtime~main.js": "/book-list/static/js/runtime~main.88a4bf2d.js",
   "runtime~main.js.map": "/book-list/static/js/runtime~main.88a4bf2d.js.map",
   "static/media/semantic.min.css": "/book-list/static/media/brand-icons.a1a749e8.svg",
-  "static/css/main.513dd343.chunk.css.map": "/book-list/static/css/main.513dd343.chunk.css.map",
   "static/css/1.201d86b6.chunk.css.map": "/book-list/static/css/1.201d86b6.chunk.css.map",
+  "static/css/main.513dd343.chunk.css.map": "/book-list/static/css/main.513dd343.chunk.css.map",
   "index.html": "/book-list/index.html",
-  "precache-manifest.76cc8183862366844570c6df0a12aecd.js": "/book-list/precache-manifest.76cc8183862366844570c6df0a12aecd.js",
+  "precache-manifest.27fe66cd10f9e81e2887d9811bf55eb5.js": "/book-list/precache-manifest.27fe66cd10f9e81e2887d9811bf55eb5.js",
   "service-worker.js": "/book-list/service-worker.js"
 }

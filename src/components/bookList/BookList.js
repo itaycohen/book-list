@@ -66,14 +66,18 @@ class BookList extends React.Component {
     loadItems(page) {
 
         const self = this;
-        const url = "https://thebooksofmedium-api.herokuapp.com/books/" + this.state.tag + "/" + this.state.sorter + "/sub-page?limit=50&&page=" + self.state.page;
+        // const tag = this.state.tag.toLowerCase()
+        // const sorter = this.state.sorter.toLowerCase()
+        const tag = this.state.tag
+        const sorter = this.state.sorter
+        const url = "https://thebooksofmedium-api.herokuapp.com/books/" + tag + "/" + sorter + "/sub-page?limit=50&&page=" + self.state.page;
         // const url = "localhost:3001/books/" + this.state.tag + "/" + this.state.sorter + "/sub-page?limit=50&&page=" + self.state.page;
         // const url = "books/" + this.state.tag + "/" + this.state.sorter + "/sub-page?limit=50&&page=" + self.state.page;
 
 
 
         qwest.get(url, {
-            cache: false
+            cache: true
         })
             .then(function (xhr, resp) {
                 if (resp) {

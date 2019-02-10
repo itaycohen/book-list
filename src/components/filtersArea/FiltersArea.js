@@ -163,13 +163,6 @@ class DesktopFiltersArea extends Component {
 
               });
         }
-
-
-        
-
-        
-
-
       
 
         const { fixed, categories, sortersOptions, onSorterChange, sorter, onTagChange } = this.props;
@@ -213,6 +206,7 @@ class MobileFiltersArea extends Component {
     }
 
 
+
     render() {
 
         const { contextRef } = this.state
@@ -228,16 +222,16 @@ class MobileFiltersArea extends Component {
                 <Sticky context={contextRef}>
 
                     <div className={"filtersAreaContainer " + "stickyFiltersMobile " + (fixed ? "stickyFiltersFixed" : "")}>
-                        <div>
+                        <div className="tagsDropdown">
                             <Icon name='filter' />
-                            <Dropdown placeholder='All Tags' search defaultValue='All' selection options={categories} closeOnChange onChange={onTagChange}/>
+                            <Dropdown placeholder='All Tags' search defaultValue='All Tags' selection options={categories}  closeOnChange onChange={onTagChange}/>
                         </div>
                         <div>
                             <Icon name='sort amount down' />
                             <Dropdown placeholder='Rank' placeholder={sorter} defaultValue={sorter} selection options={sortersOptions} closeOnChange onChange={onSorterChange} />
                         </div>
 
-                        <Icon name='long arrow alternate up' size='large' className={"goToTopButton " + (fixed ? "" : "goToTopButtonHidden")} onClick={this.goToTop} />
+                        {/* <Icon name='long arrow alternate up' size='large' className={"goToTopButton " + (fixed ? "" : "goToTopButtonHidden")} onClick={this.goToTop} /> */}
                     </div>
                     {/* </Container> */}
 

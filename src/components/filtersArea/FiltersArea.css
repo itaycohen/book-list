@@ -47,10 +47,10 @@
 
 
   .stickyFiltersMobile .ui.selection.dropdown {
-    min-width: 110px;
-    width: 110px;
-    min-height: 26px;
-    height: 26px;
+    min-width: 125px;
+    width: 125px;
+    min-height: 30px;
+    height: 30px;
     line-height: 4px;
   }
 
@@ -86,6 +86,45 @@
 .goToTopButtonHidden {
     display: none !important;
 }
+
+
+
+
+.stickyFiltersMobile .tagsDropdown .ui.selection.dropdown .menu {
+    
+    width: 250px !important;
+}
+
+.stickyFiltersMobile .tagsDropdown .ui.search.dropdown .menu {
+    max-height: 200px !important;
+    
+}
+
+
+.stickyFiltersMobile .tagsDropdown .ui.search.dropdown>.text {
+    position: absolute;
+    left: 12px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90px;
+    height: 20px;
+    line-height: 10px;
+    
+}
+
+
+.stickyFiltersMobile .tagsDropdown>i.icon {
+    position: relative;
+    top: -9px;
+    right: 1px;
+
+}
+
+
+
+
 
 
 

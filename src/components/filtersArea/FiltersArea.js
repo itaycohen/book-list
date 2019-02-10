@@ -68,7 +68,7 @@ class FiltersArea extends React.Component {
             { value: 'Lifestyle', text: 'Lifestyle' },
             { value: 'Love', text: 'Love' },
             { value: 'Machine Learning', text: 'Machine Learning' },
-            { value: 'DesMarketingign', text: 'Marketing' },
+            { value: 'Marketing', text: 'Marketing' },
             { value: 'Mental Health', text: 'Mental Health' },
             { value: 'Mindfulness', text: 'Mindfulness' },
             { value: 'Money', text: 'Money' },

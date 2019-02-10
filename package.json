@@ -2,7 +2,7 @@
   "name": "book-list",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://itaycohen.github.io/book-list/",
+  "homepage": "https://www.thebooksofmedium.com",
   "dependencies": {
     "@material-ui/core": "^3.5.1",
     "@material-ui/icons": "^3.0.1",
@@ -10,6 +10,7 @@
     "qwest": "^4.5.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-ga": "^2.5.7",
     "react-infinite-scroll-component": "^4.5.0",
     "react-infinite-scroller": "^1.2.4",
     "react-scripts": "2.1.1",

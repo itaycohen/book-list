@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
 import './FiltersArea.css';
 
 import * as Scroll from 'react-scroll';
@@ -130,7 +131,46 @@ class FiltersArea extends React.Component {
 class DesktopFiltersArea extends Component {
 
 
+    
+    
     render() {
+        const onTagDropdownClick = () => {
+            // alert('click')
+            // gtag('send', 'event', {
+            //     eventCategory: 'Test Category',
+            //     eventAction: 'test action',
+            //     eventLabel: "test label"
+            //   });
+            ReactGA.event({
+                category: 'Test Category',
+                action: 'test action one',
+                label: 'tag'
+              });
+        }
+
+
+        const onSorterDropdownClick = () => {
+            // alert('click')
+            // gtag('send', 'event', {
+            //     eventCategory: 'Test Category',
+            //     eventAction: 'test action',
+            //     eventLabel: "test label"
+            //   });
+            ReactGA.event({
+                category: 'Test Category',
+                action: 'test action two',
+                label: 'sorter'
+
+              });
+        }
+
+
+        
+
+        
+
+
+      
 
         const { fixed, categories, sortersOptions, onSorterChange, sorter, onTagChange } = this.props;
 
@@ -143,14 +183,14 @@ class DesktopFiltersArea extends Component {
                         <Header as='h4' className="filterItem">
                             <Icon name='filter' />
                             <Header.Content>
-                                <Dropdown placeholder='All Tags' search defaultValue='All Tags' selection options={categories} closeOnChange onChange={onTagChange}/>
+                                <Dropdown placeholder='All Tags' search defaultValue='All Tags' selection options={categories} onClick={onTagDropdownClick} closeOnChange onChange={onTagChange}/>
                             </Header.Content>
                         </Header>
 
                         <Header as='h4' className="filterItem">
                             <Icon name='sort amount down' />
                             <Header.Content>
-                                <Dropdown placeholder={sorter} defaultValue={sorter} selection options={sortersOptions} closeOnChange onChange={onSorterChange} />
+                                <Dropdown placeholder={sorter} defaultValue={sorter} selection options={sortersOptions} closeOnChange  onClick={onSorterDropdownClick} onChange={onSorterChange} />
                             </Header.Content>
                         </Header>
                     </div>

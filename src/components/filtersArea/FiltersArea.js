@@ -135,32 +135,17 @@ class DesktopFiltersArea extends Component {
     
     render() {
         const onTagDropdownClick = () => {
-            // alert('click')
-            // gtag('send', 'event', {
-            //     eventCategory: 'Test Category',
-            //     eventAction: 'test action',
-            //     eventLabel: "test label"
-            //   });
             ReactGA.event({
-                category: 'Test Category',
-                action: 'test action one',
-                label: 'tag'
+                category: 'Page Clicks',
+                action: 'Tags Dropdown Click',
               });
         }
 
 
         const onSorterDropdownClick = () => {
-            // alert('click')
-            // gtag('send', 'event', {
-            //     eventCategory: 'Test Category',
-            //     eventAction: 'test action',
-            //     eventLabel: "test label"
-            //   });
             ReactGA.event({
-                category: 'Test Category',
-                action: 'test action two',
-                label: 'sorter'
-
+                category: 'Page Clicks',
+                action: 'Sorter Dropdown Click',
               });
         }
       

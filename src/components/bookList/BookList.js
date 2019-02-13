@@ -3,6 +3,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import BookItem from '../bookItem/BookItem';
 import FiltersArea from '../filtersArea/FiltersArea';
 import qwest from 'qwest';
+import ReactGA from 'react-ga';
 import './BookList.css';
 import {
     Item,
@@ -20,6 +21,7 @@ const getWidth = () => {
 
 
 const initialPage = 1;
+
 
 class BookList extends React.Component {
 
@@ -47,6 +49,7 @@ class BookList extends React.Component {
                 books: [],
                 page: initialPage,
             })
+            this.gaHandlerSorter(newSorter)
         }
     }
 
@@ -59,8 +62,30 @@ class BookList extends React.Component {
                 page: initialPage,
                 tag: data.value
             })
+            this.gaHandlerTag(newTag)
         }
+
+
     }
+
+    gaHandlerTag = (actionValue) => {
+        this.gaHandler("Tag Choose Click", actionValue)
+    }
+
+    gaHandlerSorter = (actionValue) => {
+        this.gaHandler("Sorter Choose Click", actionValue)
+    }
+
+
+    gaHandler = (actionType, value) => {
+        ReactGA.event({
+            category: 'Dropdown Choose',
+            action: actionType,
+            value: value
+          });
+    }
+
+    
 
 
     loadItems(page) {
